@@ -2,14 +2,9 @@
     <ul>
     {% for goal in goals %}
         <!-- <li><a href="/greyscrumy/{{ goal.id }}">{{ goal.goal_description }}</a></li> -->
-        <li>{{ goal.fullname }}</li>
+        <li><a href="{% url 'greyscrumy:Move_Goal' goal.id %}">{{ goal.goal_description }}</a></li>
     {% endfor %}
     </ul>
-    <!-- <a href="{% url 'greyscrumy:Add_User' %}">Add New User</a> -->
 {% else %}
     <p>Nothing to display</p>
 {% endif %}
-
-
-
-

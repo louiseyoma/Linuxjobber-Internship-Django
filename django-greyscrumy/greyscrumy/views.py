@@ -7,15 +7,19 @@ from django.views import generic
 from .models import ScrumyGoals, ScrumyUser, GoalStatus
 from .form import UserForm
 
+def index(request):
 
+    hello = 'Hello World'
+    daily_target = ScrumyGoals.objects.filter(goal_type='WG')
+    
+    return render(request, 'greyscrumy/index.html', {'hello': hello, 'daily_target': daily_target})
 
-class IndexView(generic.ListView):
-    template_name = 'greyscrumy/index.html'
+class Add_Task(generic.ListView):
+    template_name = 'greyscrumy/add_task.html'
     context_object_name = 'goals'
 
 
     def get_queryset(self):
-    
         return ScrumyGoals.objects.all()
 
 

@@ -1,8 +1,13 @@
+<h1>{{ hello }}</h1>
 
 
-{% if goals %}
+
+<h1>DAILY TARGET</h1>
+
+
+{% if daily_target %}
     <ul>
-    {% for goal in goals %}
+    {% for goal in daily_target %}
         <!-- <li><a href="/greyscrumy/{{ goal.id }}">{{ goal.goal_description }}</a></li> -->
         <li><a href="{% url 'greyscrumy:Move_Goal' goal.id %}">{{ goal.goal_description }}</a></li>
     {% endfor %}
@@ -10,6 +15,26 @@
 {% else %}
     <p>Nothing to display</p>
 {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
