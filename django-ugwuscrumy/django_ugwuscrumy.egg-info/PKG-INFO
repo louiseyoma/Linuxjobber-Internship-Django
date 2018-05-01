@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: django-ugwuscrumy
+Version: 0.1
+Summary: A Scrum project management app.
+Home-page: https://www.scrumy.com/
+Author: Anthony Ugwu
+Author-email: anthonyu234@gmail.com
+License: BSD License
+Description: ==========
+        ugwuscrumy
+        ==========
+        
+        ugwuscrumy is a collaboration and project management application
+        that makes use of the scrum process.Enabling teams to create task
+        and also monitor the progress of the task from start to finish
+        
+        quick start
+        ==========
+        
+        add "ugwuscrumy" to your INSTALLED_APPS settings like this:
+        
+        INSTALLED_APPS =[
+          'ugwuscrumy'
+        ]
+        
+        include the ugwuscrumy URLconf in your project like this:
+        
+        path('ugwuscrumy', include('ugwuscrumy.urls'))
+        
+        run 'python manage.py migrate' to create ugwuscrumy models
+        start the development server
+        
+        visit http://127.0.0.1:8000/ugwuscrumy to view the index page
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: X.Y
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
