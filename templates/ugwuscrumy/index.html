@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+  <head>
+    <meta charset ='utf-8'>
+      <title>first temp app wit pics</title>
+      <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+  </head>
+  <body>
+
+    <table>
+    <tr>
+      <th></th>
+      <th>User</th>
+      <th></th>
+      <th>Weekly Goals</th>
+      <th>Daily Goals</th>
+      <th>Verify</th>
+      <th>Donel</th>
+    </tr>
+    {% for x in user1 %}
+    <tr>
+      <td>+</td>
+      <td>{{x.username}}</td>
+      <td>+</td>
+      <td>{{no_users}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% endfor %}
+
+  </table>
+
+  {% for %}
+
+
+
+  {% endfor %}
+  </body>
+
+</html>
