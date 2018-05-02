@@ -1,0 +1,1 @@
+Django-jimohscrumy is a simple Django app to conduct Web-based task/goal management.
