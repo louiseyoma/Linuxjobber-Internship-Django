@@ -1,0 +1,4 @@
+include LICENSE
+include README.rst
+recursive-include okoroscrumy/static *
+recursive-include okoroscrumy/templates *
