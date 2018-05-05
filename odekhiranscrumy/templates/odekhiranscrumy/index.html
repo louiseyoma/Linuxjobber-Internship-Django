@@ -1,0 +1,29 @@
+{% extends "odekhiranscrumy/base_layout.html" %}
+{% block content %}
+<table border="1">
+
+    <thead>
+    <th></th>
+    <th>User</th>
+    <th></th>
+    <th>Weekly Goals</th>
+    <th>Daily Goals</th>
+    <th>Verify</th>
+    <th>Done</th>
+    </thead>
+    <tbody>
+    {{ u }}
+    {% for u in username %}
+        <tr>
+            <td> + </td>
+            <td>  {{ u.username }} </td>
+            <td> + </td>
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: django-odekhiranscrumy
+Version: 0.1
+Summary: A simple web project management tools for monitoring and managing projects goals.
+Home-page: https://github.com/shadymedy/ScrumyApp
+Author: Shadrach Odekhiran
+Author-email: shadymedy@gmail.com
+License: BSD License
+Description: =====
+        Scrumy App
+        =====
+        
+        Scrumy App is a simple Django project management tools for monitoring and managing projects goals
+        
+        Quick start
+        -----------
+        
+        1. Add "Scrumy App" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'odekhiranscrumy.apps.ScrumyappConfig',
+            ]
+        
+        2. Include the Scrumy App URLconf in your project urls.py like this::
+        
+            path('scrumy/', include('scrumyapp.urls')),
+        
+        3. Run `python manage.py migrate` to create the scrumyapp models.
+        
+        4. Start the development server and visit http://127.0.0.1:8000/admin/
+           to create a goal (you'll need the Admin app enabled).
+        
+        5. Visit http://127.0.0.1:8000/scrumy to start your journey of managing your team's projects.
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
