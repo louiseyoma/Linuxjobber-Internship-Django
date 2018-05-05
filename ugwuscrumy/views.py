@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from ugwuscrumy.models import ScrumyUser,ScrumyGoals,GoalStatus
 from . import forms
+from django.http import Http404
 
 
 # Create your views here.
@@ -20,6 +21,13 @@ def move_goal(request,task_id):
     query=ScrumyUser.objects.get(id=task_id)
     return HttpResponse(query)
 
+def add_task(request,task_id):
+    try:
+        query=ScrumyGoals.objects.get(id=task_id)
+    except ScrumyGoals.DoesNotExist:
+        raise Http404("there is no task with the id of "+ str(task_id))
+    return render(request,'ugwuscrumy/add_task.html',context=({'query':query}))
+    #return HttpResponse(query)
 
 def add_user(request):
     new_user_form=forms.NewUser()
