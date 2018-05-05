@@ -11,8 +11,8 @@ def index(request) :
     users=ScrumyUser.objects.all()
     users_dict={'user1':users}
     no_users=users.count()
-    return HttpResponse(no_users)
-    #return render(request,'ugwuscrumy/index.html',context=(users_dict)
+    #return HttpResponse(no_users)
+    return render(request,'ugwuscrumy/index.html',context=(users_dict))
 
 
 
