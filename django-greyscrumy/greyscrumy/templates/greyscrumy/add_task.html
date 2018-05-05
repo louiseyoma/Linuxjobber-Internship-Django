@@ -1,10 +1,23 @@
-{% if goals %}
-    <ul>
-    {% for goal in goals %}
-        <!-- <li><a href="/greyscrumy/{{ goal.id }}">{{ goal.goal_description }}</a></li> -->
-        <li><a href="{% url 'greyscrumy:Move_Goal' goal.id %}">{{ goal.goal_description }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Nothing to display</p>
-{% endif %}
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Add Task</title>
+{% endblock %}
+
+{% block body %}
+    {% block heade %}
+        <h1></h1>
+    {% endblock %}
+    {% if goals %}
+        <ul>
+        {% for goal in goals %}
+            <!-- <li><a href="/greyscrumy/{{ goal.id }}">{{ goal.goal_description }}</a></li> -->
+            <li><a href="{% url 'greyscrumy:Move_Task' goal.id %}">{{ goal.goal_description }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nothing to display</p>
+    {% endif %}
+
+{% endblock %}
+

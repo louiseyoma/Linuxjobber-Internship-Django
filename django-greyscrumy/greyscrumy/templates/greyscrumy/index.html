@@ -1,24 +1,59 @@
-<h1>{{ hello }}</h1>
+{% extends 'base.html' %}
 
+{% block title %}
+    <title>Add User</title>
+{% endblock %}
 
+{% block body %}
 
-<h1>DAILY TARGET</h1>
-
-
-{% if daily_target %}
-    <ul>
-    {% for goal in daily_target %}
-        <!-- <li><a href="/greyscrumy/{{ goal.id }}">{{ goal.goal_description }}</a></li> -->
-        <li><a href="{% url 'greyscrumy:Move_Goal' goal.id %}">{{ goal.goal_description }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Nothing to display</p>
-{% endif %}
+    {% block heade %}
+        <h1 class="text-center my-5" style="font-size: 120%">DAILY TARGET</h1>
+    {% endblock %}
 
 
 
 
+    <!-- {{ids}} -->
+    <div class="container">
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col">User</th>
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col">Weekly Goals</th>
+                            <th scope="col">Daily Goals</th>
+                            <th scope="col">Verify</th>
+                            <th scope="col">Done</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for goal in goals %}
+                            <td>{{ forloop.counter }}</td>
+                            <td></td>
+                            <td>{{ goal.user_id.fullname }}</td>
+                            <td></td>
+                            
+                            <td>{{ goal.goal_description }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                        
+                   
+                </table>
+            </div>
+                
+        </div>
+    </div>
+    
+{% endblock %}
 
 
 
@@ -39,12 +74,5 @@
 
 
 
-<!-- 
-<h1>{{ goal.user_id.fullname }}</h1>
-<h1>{{ goal.user_id.role }}</h1>
-<p>{{ goal.goal_type }}</p>
-<p>{{ goal.goal_description }}</p>
-<p>{{ goal.date_created }}</p>
-<p>{{ goal.date_updated }}</p>
-<p>{{ goal.user_id.role }}</p>
-<p>{{ goal.status_id.status }}</p> -->
+
+
