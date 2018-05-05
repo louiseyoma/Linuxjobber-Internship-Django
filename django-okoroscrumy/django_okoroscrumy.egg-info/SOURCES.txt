@@ -26,3 +26,11 @@ okoroscrumy/templates/dailytask.html
 okoroscrumy/templates/goals.html
 okoroscrumy/templates/index.html
 okoroscrumy/templates/user.html
+okoroscrumy/templates/login/login.html
+okoroscrumy/templates/okoroscrumy/addtask.html
+okoroscrumy/templates/okoroscrumy/adduser.html
+okoroscrumy/templates/okoroscrumy/changestatus.html
+okoroscrumy/templates/okoroscrumy/dailytask.html
+okoroscrumy/templates/okoroscrumy/goals.html
+okoroscrumy/templates/okoroscrumy/index.html
+okoroscrumy/templates/okoroscrumy/user.html
