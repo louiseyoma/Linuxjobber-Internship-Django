@@ -17,10 +17,13 @@ class User(models.Model):
     role = models.CharField(max_length=3, choices=ROLES)
 
     def __str__(self):
-        return '{}'.format(self.first_name)
+        return '{} {}'.format(self.first_name, self.last_name)
+
+    def getWeeklyStatus(self):
+        return self.goal_set.filter(status__status__iexact='WG')
 
 
-class GoalStatus(models.Model):
+class Status(models.Model):
     WEEKLY_GOAL = 'WG'
     DAILY_TASK = 'DT'
     VERIFY = 'VY'
@@ -40,14 +43,12 @@ class GoalStatus(models.Model):
 
 class Goal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    description = models.TextField()
-    status = models.ForeignKey(GoalStatus, on_delete=models.CASCADE)
+    task = models.TextField()
+    task_id = models.AutoField(primary_key=True)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE)
     verify_by = models.CharField(max_length=30, null=True, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
     update_status = models.DateTimeField(default=timezone.now, null=False)
 
-
     def __str__(self):
         return self.task
-
-

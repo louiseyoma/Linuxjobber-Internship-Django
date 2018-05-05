@@ -12,17 +12,20 @@
     <th>Done</th>
     </thead>
     <tbody>
-    {{ u }}
-    {% for u in username %}
+    {% for user in username %}
+        {% for goal in user.getWeeklyStatus %}
         <tr>
-            <td> + </td>
-            <td>  {{ u.username }} </td>
-            <td> + </td>
+
+            <td> <a href="{% url 'add_user' %}"> +</a></td>
+            <td>  {{ user.username }} </td>
+            <td><a href="{% url 'add_tasks' %}"> +</a> </td>
+            <td>  {{ goal.task }} </td>
             <td>   </td>
             <td>   </td>
             <td>   </td>
-            <td>   </td>
+
         </tr>
+        {% endfor %}
     {% endfor %}
     </tbody>
 </table>

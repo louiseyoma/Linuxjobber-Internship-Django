@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "odekhiranscrumy/base_layout.html" %}
+{% block content %}
 
-</body>
-</html>
+    <form method="post" action="#">
+{% csrf_token %}
+
+<div>
+  <td>{{ form.user.label_tag }}</td>
+  <td>{{ form.user }}</td>
+</div>
+<div>
+  <td>{{ form.task.label_tag }}</td>
+  <td>{{ form.task }}</td>
+</div>
+
+        <div>
+  <td>{{ form.status.label_tag }}</td>
+  <td>{{ form.status }}</td>
+</div>
+
+<div>
+  <input type="submit" value="Add Task" />
+</div>
+
+</form>
+
+{% endblock %}

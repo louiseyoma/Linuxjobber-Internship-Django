@@ -1,13 +1,20 @@
 from django import forms
-from .models import User
+from .models import User, Goal
 
-class NewUserForm(forms.ModelForm):
+# add new user form class
+class AddUser(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'role']
-        widgets = {
-            'first_name': forms.TextInput(attrs={'class':'form-control mr-sm-2', 'placeholder':'First Name'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Last Name'}),
-            'username': forms.TextInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Username'}),
-            'email': forms.TextInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Password'}),
-        }
+        fields = ['first_name', 'last_name', 'username', 'password', 'email', 'role']
+
+# add task form class
+class AddTask(forms.ModelForm):
+    class Meta:
+        model = Goal
+        fields = ['user', 'task', 'status']
+
+# move task form class
+class MoveTask(forms.ModelForm):
+    class Meta:
+        model = Goal
+        fields = ['user', 'task', 'status']

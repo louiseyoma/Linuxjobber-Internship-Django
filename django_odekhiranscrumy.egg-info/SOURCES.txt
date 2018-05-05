@@ -19,9 +19,16 @@ odekhiranscrumy/migrations/0003_auto_20180504_2325.py
 odekhiranscrumy/migrations/0004_auto_20180504_2328.py
 odekhiranscrumy/migrations/0005_auto_20180504_2330.py
 odekhiranscrumy/migrations/0006_auto_20180505_0424.py
+odekhiranscrumy/migrations/0007_goalstatus_name.py
+odekhiranscrumy/migrations/0008_auto_20180505_1449.py
+odekhiranscrumy/migrations/0009_auto_20180505_1452.py
+odekhiranscrumy/migrations/0010_auto_20180505_1501.py
+odekhiranscrumy/migrations/0011_remove_status_name.py
+odekhiranscrumy/migrations/0012_auto_20180505_1506.py
 odekhiranscrumy/migrations/__init__.py
 odekhiranscrumy/templates/odekhiranscrumy/add_task.html
 odekhiranscrumy/templates/odekhiranscrumy/add_user.html
 odekhiranscrumy/templates/odekhiranscrumy/base_layout.html
 odekhiranscrumy/templates/odekhiranscrumy/index.html
 odekhiranscrumy/templates/odekhiranscrumy/move_task.html
+odekhiranscrumy/templates/registration/login.html
