@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<h2>Hi, User</h2>
-<form action="" method="post">
-  {% csrf_token %}{ % for field in form %}
-  <p> {{field.errors}} </p>
-  <label for="">{{ field.label_tag}}</label>
-  <div>{{ field }} </div>
-  {% endfor %}
-  <button type="submit"> Add User </button>
-</html>
+{% block title %}
+<title>Add User</title>
+{% endblock %}
+{% block body %}
+{% block heade %}
+<h1>REGISTER USERS</h1>
+{% endblock %}
+{% if goals %}
+<ul>
+{% for goal in goals %}
+<li>{{ goal.user_name }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>Nothing to display</p>
+{% endif %}
+<h1>ADD NEW USER</h1>
+{% if success %}
+{{ success }}
+{% endif %}
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button name="submit" type="submit">Add New User</button>
+</form>
+{% endblock %}
