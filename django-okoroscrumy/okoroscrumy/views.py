@@ -2,9 +2,10 @@ from django.shortcuts import render,redirect
 from django.http import Http404
 from django.contrib import messages
 from .models import ScrumyGoals,GoalStatus,ScrumyUser
-from .forms import ChangeTaskStatusForm,UserForm
-from django.views.generic import TemplateView, View
+from .forms import ChangeTaskStatusForm
+from django.urls import reverse_lazy
 from django.views import generic
+from django.views.generic.edit import CreateView
 
 def index(request):
     users = ScrumyUser.objects.all()
@@ -16,29 +17,11 @@ def get_users(request):
     context = {'users':users}
     return render(request, 'okoroscrumy/users.html', context)
 
-class add_user(TemplateView):
+class add_user(CreateView):
 
-    def get(self, request):
-        form = UserForm()
-        goals = ScrumyUser.objects.all()
-        return render(request, 'okoroscrumy/adduser.html', {'form':form, 'goals': goals })
-
-    def post(self, request):
-        form = UserForm(request.POST)
-        if form.is_valid():
-
-            success = 'Registered Successfully'
-            form.save()
-
-            name = form.cleaned_data['fullname']
-            role = form.cleaned_data['role']
-
-            form = UserForm()
-        goals = ScrumyUser.objects.all()
-
-        args = {'form': form, 'name': name, 'role': role, 'goals': goals, 'success': success}
-
-        return render(request, 'okoroscrumy/adduser.html', args)
+    model = ScrumyUser
+    fields = '__all__'
+    success_url = '/app'
 
 def dailytask_goals(request):
     status_dt= GoalStatus.objects.get(status='DT')
@@ -54,11 +37,10 @@ def move_goal(request, task_id):
     context = {'goals':goals, 'task_id':task_id}
     return render(request, 'okoroscrumy/goals.html', context)
 
-class add_task(generic.ListView):
-    template_name = 'okoroscrumy/addtask.html'
-    
-    def get_queryset(self):
-        return ScrumyGoals.objects.all()
+class add_task(CreateView):
+    model = ScrumyGoals
+    fields = '__all__'
+    success_url = '/app'
 
 def ChangeTaskStatus(request, goal_id):
     if request.method == "POST":
