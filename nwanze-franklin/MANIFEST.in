@@ -1,0 +1,4 @@
+include LICENSE
+include README.rst
+recursive-include nwanzescrumy/static *
+recursive-include nwanzescrumy/templates *
