@@ -1,0 +1,8 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+django_okoroscrumy.egg-info/PKG-INFO
+django_okoroscrumy.egg-info/SOURCES.txt
+django_okoroscrumy.egg-info/dependency_links.txt
+django_okoroscrumy.egg-info/top_level.txt
