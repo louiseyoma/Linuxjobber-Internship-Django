@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log  in</title>
+</head>
+<body>
+	<form action="" method="POST">
+		{% csrf_token %}
+
+		{% if form.errors %}
+			<p>Your form contains error</p>
+		{% endif %}
+		User Name:<br>
+		<input type="text" name="username"><br><br>
+		Password: <br>
+		<input type="password" name="pswd"><br><br>
+		<input type="submit" name="Log In">
+	</form>
+</body>
+</html>

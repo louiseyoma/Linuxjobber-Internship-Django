@@ -2,15 +2,71 @@
 <html>
 <head>
 	<title> All Scrumy Users</title>
+	<style>
+		table, th, td{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		td{
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
-	{% for new in new_user %}
-		<ul>
-			<li>
-				{{new.user_name}}
-			</li>
-		</ul>
-	{% endfor %}
+	<table style="width: 100%">
+		<tr>
+			<th>    </th>
+			<th>User</th>
+			<th>    </th>
+			<th>Weekly Goals</th>
+			<th>Daily Goals</th>
+			<th>Verified</th>
+			<th>Done</th>
+		</tr>
+		<tr>
+			<td>
+				<a href="{% url 'add_user' %}">+</a>
+			</td>
+			<td>
+				{% for user in new_user %}
+					{% if user.id is 1 %}
+						{{user}}
+					{% endif %}
+				{% endfor %}
+			</td>
+			<td>
+				<a href="{% url 'add_task' %}">+</a>
+			</td>
+			<td>
+					{% for goals in userTarget %}
+						{% if goals.status_id.id is 1 and goals.user_id.id is 1 %}
+							{{goals}}
+						{% endif %}
+					{% endfor %}
+			</td>
+			<td>
+				{% for goals in userTarget %}
+						{% if goals.status_id.id is 2 and goals.user_id.id is 1 %}
+							{{goals}}
+						{% endif %}
+					{% endfor %}
+			</td>
+			<td>
+					{% for goals in userTarget %}
+						{% if goals.status_id.id is 3 and goals.user_id.id is 1 %}
+							{{goals}}
+						{% endif %}
+					{% endfor %}
+			</td>
+			<td>
+				{% for goals in userTarget %}
+						{% if goals.status_id.id is 4 and goals.user_id.id is 1 %}
+							{{goals}}
+						{% endif %}
+					{% endfor %}
+			</td>
+		</tr>
+	</table>
 	
 	
 
