@@ -9,6 +9,7 @@ django_jimohscrumy.egg-info/top_level.txt
 jimohscrumy/__init__.py
 jimohscrumy/admin.py
 jimohscrumy/apps.py
+jimohscrumy/forms.py
 jimohscrumy/models.py
 jimohscrumy/tests.py
 jimohscrumy/urls.py
@@ -20,6 +21,10 @@ jimohscrumy/migrations/0004_scrumygoal_status.py
 jimohscrumy/migrations/0005_auto_20180430_1304.py
 jimohscrumy/migrations/0006_remove_scrumygoal_status.py
 jimohscrumy/migrations/0007_scrumygoal_status.py
+jimohscrumy/migrations/0008_auto_20180507_1619.py
+jimohscrumy/migrations/0009_auto_20180507_1630.py
+jimohscrumy/migrations/0010_auto_20180507_1718.py
+jimohscrumy/migrations/0011_remove_scrumygoal_status.py
 jimohscrumy/migrations/__init__.py
 myscrumy/__init__.py
 myscrumy/settings.py
