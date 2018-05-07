@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Details</title>
+{% endblock %}
+
+{% block header %}
+        <h1 class="text-center" style="font-size: 150%">TASK DETAILS</h1>
+{% endblock %}
+
+{% block body %}
+
+    
+            <h1 class="ml-5 pl-5">{{ goals.user_id.fullname }}</h1><br>
+            <p class="ml-5 pl-5">{{ goals.goal_type }}</p>
+            <p class="ml-5 pl-5">{{ goals.goal_description }}</p>
+            <p class="ml-5 pl-5">{{ goals.date_created }}</p>
+            <p class="ml-5 pl-5">{{ goals.date_updated }}</p>
+
+        
+{% endblock %}

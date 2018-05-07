@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Add User</title>
+{% endblock %}
+
+
+{% block header %}
+    <h1 class="text-center" style="font-size: 150%">REGISTERED USERS</h1>
+{% endblock %}
+
+{% block body %}
+
+    
+<!-- <div class="container">
+    <div class="row"> -->
+        {% if goals %}
+            <ul class="ml-5 pl-5">
+                {% for goal in goals %}
+                    <li>{{ goal.fullname }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nothing to display</p>
+        {% endif %}
+        <br><br>
+        <!-- <h1>ADD NEW USER</h1> -->
+        <div class="ml-5 pl-5">
+        {% if success %}
+            {{ success }}
+        {% endif %}
+        </div>
+        <div class="ml-5 pl-5 mb-5">
+
+            <form method="post">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+                
+                <button class="btn btn-outline-info rounded-0" name="submit" type="submit">Add New User</button>
+            </form>
+        </div>
+    <!-- </div>
+</div> -->
+
+{% endblock %}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block title %}
+    <title>Document</title>
+    {% endblock %}
+
+   <link href="https://fonts.googleapis.com/css?family=Gugi|Lato:400,700,900" rel="stylesheet">
+
+
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'greyscrumy/web-fonts-with-css/css2/fontawesome-all.css' %}" >
+   <link rel="stylesheet" href="{% static 'greyscrumy/css/bootstrap1.css' %}" >   
+   <link rel="stylesheet" href="{% static 'greyscrumy/css/style.css' %}" >
+
+   <style>
+       /* unvisited link */
+        a:link {
+            color:#fff;
+            text-decoration: none;
+        }
+
+        /* visited link */
+        a:visited {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: blue;
+            text-decoration: none;
+        }
+
+        /* selected link */
+        a:active {
+            color:#fff;
+            text-decoration: none;
+        }
+   </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">GREYSCRUMY</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                
+                </ul>
+            </div>
+        </nav>
+        
+    
+    <div class="jumbotron" style="height: 80px;">
+        {% block header %}
+            
+        {% endblock %}
+                
+    </div>
+    
+            {% block body %}
+            
+            {% endblock %}
+        
+    <script src="{% static 'greyscrumy/js/jquery.js' %}"></script>
+    <script src="{% static 'greyscrumy/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
