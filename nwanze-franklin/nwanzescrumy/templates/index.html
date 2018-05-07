@@ -34,7 +34,13 @@
                                {{user.first_name}}
                             </td>
                             <td><a href="{% url 'addtask' %}">+</a></td>
-                            <td></td>
+                            <td>
+                                <ul>
+                                    {% for task in user.tasks %}
+                                        <li>{{task.description}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>

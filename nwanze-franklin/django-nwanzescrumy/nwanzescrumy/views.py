@@ -92,13 +92,15 @@ def move_task(request, task_id):
         if form.is_valid():
             description = form.cleaned_data['description']
             goal = form.cleaned_data['goal']
+            assigned_to = form.cleaned_data['assigned_to']
 
             task.description = description
             task.status_id = goal
+            task.assigned_to = 
             task.save()
             return render(request, 'movetask.html', {'form': ChangeTaskStatusForm(initial={'goal': task.status.id, 'description': task.description}), 'success': True})
         return render(request, 'movetask.html', {'form':form})
 
     else:
-        form = ChangeTaskStatusForm(initial={'goal': task.status.id, 'description': task.description})
+        form = ChangeTaskStatusForm(initial={'goal': task.status.id, 'assign_to':ScrumyUser.objects.filter(id=task.assigned_to), 'description': task.description})
         return render(request, 'movetask.html', {'form': form})

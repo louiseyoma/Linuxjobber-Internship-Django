@@ -49,9 +49,12 @@ class ChangeTaskStatusForm(forms.Form):
     CHOICES= (
             status
         )
+    USERS =(
+        [(obj.id, obj.user_name) for obj in ScrumyUser.objects.all()]
+    )
     description = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
     goal = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}), choices=CHOICES)
-    
+    assigned_to = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}), choices=USERS)
     class Meta:
         model = Task
         fields = ['description']

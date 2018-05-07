@@ -6,9 +6,12 @@ from nwanzescrumy.models import *
 from .form import *
 # Create your views here.
 
-def index(request):
-    users = ScrumyUser.objects.all()
-    
+def index(request): 
+    users = []
+    for obj in ScrumyUser.objects.all():
+        assigned = Task.objects.filter(assigned_to=obj.id)
+        obj.tasks = assigned
+        users.append(obj)
     return render(request, 'index.html', {'users': users})
 
 
@@ -67,7 +70,13 @@ def add_user(request):
         return render(request, 'adduser.html', {'form': form})
 
 def add_task(request):
-    tasks = Task.objects.all()
+    
+    tasks = []
+    for obj in Task.objects.all():
+        assigned = ScrumyUser.objects.filter(id=obj.assigned_to).first()
+        obj.user = assigned
+        tasks.append(obj)
+    
     if request.method == "POST":
         form = TaskForm(request.POST)
         if form.is_valid():
@@ -87,18 +96,21 @@ def add_task(request):
 
 def move_task(request, task_id):
     task = Task.objects.get(id=task_id)
+    assigned = ScrumyUser.objects.filter(id=task.assigned_to).first()     
     if request.method == "POST":
         form = ChangeTaskStatusForm(request.POST)
         if form.is_valid():
             description = form.cleaned_data['description']
             goal = form.cleaned_data['goal']
+            assigned_to = form.cleaned_data['assigned_to']
 
             task.description = description
             task.status_id = goal
+            task.assigned_to = assigned_to
             task.save()
             return render(request, 'movetask.html', {'form': ChangeTaskStatusForm(initial={'goal': task.status.id, 'description': task.description}), 'success': True})
         return render(request, 'movetask.html', {'form':form})
 
     else:
-        form = ChangeTaskStatusForm(initial={'goal': task.status.id, 'description': task.description})
+        form = ChangeTaskStatusForm(initial={'goal': task.status.id, 'assigned_to': '' if assigned is None else assigned.id, 'description': task.description})
         return render(request, 'movetask.html', {'form': form})

@@ -35,6 +35,7 @@
                         <th><b>Description</b></th>
                         <th><b>Status</b></th>
                         <th><b>Created_By</b></th>
+                        <th><b>Assigned To</b></th>
                         <th><b>Action</b></th>
                 
                 
@@ -47,6 +48,7 @@
                         <td>{{task.description}}</td>
                         <td>{{task.status.status}}</td>
                         <td>{{task.created_by.user_name}}</td>
+                        <td>{{task.user.user_name}}</td>
                        <td> <a class="btn btn-primary" href="{% url 'edittask' task.id%}">Edit</a></td>
                     </tr>
                     {%endfor%}
