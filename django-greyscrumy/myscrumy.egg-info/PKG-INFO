@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: myscrumy
+Version: 0.1
+Summary: Task / Project Manager
+Home-page: http://github.com/storborg/funniest
+Author: Grey White
+Author-email: greywhite@queuehive.com
+License: MIT
+Description: UNKNOWN
+Keywords: Managing and distributing task to various users
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Task Manager :: Task Handler

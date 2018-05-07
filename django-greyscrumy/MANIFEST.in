@@ -1,4 +1,9 @@
 include LICENSE
 include README.rst
 recursive-include greyscrumy/static *
+<<<<<<< HEAD
 recursive-include greyscrumy/templates *
+=======
+recursive-include greyscrumy/templates *
+recursive-include docs *
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a

@@ -82,9 +82,12 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '127.0.0.1',
         'POST': '3306',
+<<<<<<< HEAD
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
+=======
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
     }
 }
 
@@ -126,5 +129,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 
 LOGIN_REDIRECT_URL = '/greyscrumy/'
+=======
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a

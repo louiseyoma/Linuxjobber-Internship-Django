@@ -4,6 +4,7 @@
     <title>Add Task</title>
 {% endblock %}
 
+<<<<<<< HEAD
 
 {% block header %}
     <h1 class="text-center" style="font-size: 150%">REGISTERED TASKS</h1>
@@ -44,3 +45,22 @@
 </div> -->
 
 {% endblock %}
+=======
+{% block body %}
+    {% block heade %}
+        <h1></h1>
+    {% endblock %}
+    {% if goals %}
+        <ul>
+        {% for goal in goals %}
+            <!-- <li><a href="/greyscrumy/{{ goal.id }}">{{ goal.goal_description }}</a></li> -->
+            <li><a href="{% url 'greyscrumy:Move_Task' goal.id %}">{{ goal.goal_description }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nothing to display</p>
+    {% endif %}
+
+{% endblock %}
+
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a

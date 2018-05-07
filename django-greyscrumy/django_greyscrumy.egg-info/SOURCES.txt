@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 LICENSE
+=======
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
 MANIFEST.in
 README.rst
 setup.py
@@ -15,6 +18,7 @@ greyscrumy/tests.py
 greyscrumy/urls.py
 greyscrumy/views.py
 greyscrumy/migrations/0001_initial.py
+<<<<<<< HEAD
 greyscrumy/migrations/0002_auto_20180507_0250.py
 greyscrumy/migrations/0003_auto_20180507_0343.py
 greyscrumy/migrations/0004_auto_20180507_0720.py
@@ -58,6 +62,15 @@ greyscrumy/templates/greyscrumy/index.html
 greyscrumy/templates/greyscrumy/login.html
 greyscrumy/templates/greyscrumy/move_task.html
 greyscrumy/templates/greyscrumy/register.html
+=======
+greyscrumy/migrations/0002_auto_20180422_2124.py
+greyscrumy/migrations/0003_auto_20180425_0821.py
+greyscrumy/migrations/__init__.py
+greyscrumy/templates/greyscrumy/add_task.html
+greyscrumy/templates/greyscrumy/adduser.html
+greyscrumy/templates/greyscrumy/details.html
+greyscrumy/templates/greyscrumy/index.html
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
 myscrumy/__init__.py
 myscrumy/settings.py
 myscrumy/urls.py

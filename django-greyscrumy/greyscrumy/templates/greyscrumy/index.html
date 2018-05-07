@@ -4,6 +4,7 @@
     <title>Add User</title>
 {% endblock %}
 
+<<<<<<< HEAD
 {% block header %}
         <h1 class="text-center" style="font-size: 150%">TARGETS</h1>
 {% endblock %}
@@ -12,12 +13,28 @@
 
     {{temp}}
     {{ids}}
+=======
+{% block body %}
+
+    {% block heade %}
+        <h1 class="text-center my-5" style="font-size: 120%">DAILY TARGET</h1>
+    {% endblock %}
+
+
+
+
+    <!-- {{ids}} -->
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
     <div class="container">
         <div class="row">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered text-center">
                     <thead class="thead-dark">
                         <tr>
+<<<<<<< HEAD
+=======
+                            <th scope="col">#</th>
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
                             <th scope="col">&nbsp;</th>
                             <th scope="col">User</th>
                             <th scope="col">&nbsp;</th>
@@ -27,6 +44,7 @@
                             <th scope="col">Done</th>
                         </tr>
                     </thead>
+<<<<<<< HEAD
                     {% for user in users %}
                         {% for goal in user.get_goals %}
                     <tbody>
@@ -46,6 +64,24 @@
                     </tbody>
                         {% endfor %}
                     {% endfor %}  
+=======
+                    <tbody>
+                        <tr>
+                            {% for goal in goals %}
+                            <td>{{ forloop.counter }}</td>
+                            <td></td>
+                            <td>{{ goal.user_id.fullname }}</td>
+                            <td></td>
+                            
+                            <td>{{ goal.goal_description }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                        
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
                    
                 </table>
             </div>

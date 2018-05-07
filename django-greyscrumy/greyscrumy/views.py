@@ -1,10 +1,16 @@
 from django.shortcuts import get_object_or_404,render, redirect
 from django.contrib.auth import authenticate, login
 
+<<<<<<< HEAD
+=======
+# Create your views here.
+# from django.db.models.functions import Coalesce
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
 from django.views.generic import TemplateView, View
 from django.views import generic
 
 from .models import ScrumyGoals, ScrumyUser, GoalStatus
+<<<<<<< HEAD
 from .form import UserForm, TaskForm
 
 
@@ -97,6 +103,34 @@ class Add_Task(TemplateView):
 #         args = {'form': form, 'goals': goals}
 
 #         return render(request, 'greyscrumy/add_task.html', args)
+=======
+from .form import UserForm, LoginForm
+
+def index(request):
+
+    hello = 'Hello World'
+    daily_target = ScrumyGoals.objects.filter(goal_type='WG')
+    # total_users = ScrumyUser.objects.all().count()
+    ids = ScrumyUser.objects.values_list('id', flat=True)
+    ids = max(ids)
+    
+   
+    
+    for i in range(1, ids):
+        goals = ScrumyGoals.objects.filter(goal_type = 'WG').filter(user_id_id = i)
+        # temp = get_object_or_404(ScrumyUser, pk=i)
+        # if temp:
+        #     goals = temp.scrumygoals_set.filter(goal_type = 'WG')
+        return render(request, 'greyscrumy/index.html', {'goals': goals, 'ids':ids })
+
+class Add_Task(generic.ListView):
+    template_name = 'greyscrumy/add_task.html'
+    context_object_name = 'goals'
+
+
+    def get_queryset(self):
+        return ScrumyGoals.objects.all()
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
 
 
 def Move_Task(request, task_id):
@@ -132,3 +166,41 @@ class Add_User(TemplateView):
 
         return render(request, 'greyscrumy/adduser.html', args)
 
+<<<<<<< HEAD
+=======
+
+# class RegisterFormView(View):
+#     form_class = LoginForm()
+#     template_name = 'greyscrumy/register.html'
+
+#     def get(self, request):
+#         form = self.form_class(None)
+#         return render(request, self.template_name, {'form': form})
+
+#     def post(self, request):
+#         form = self.form_class(request.POST)
+
+#         if form.is_valid():
+#             user = form.save(commit=False)
+
+#             username = form.cleaned_data['username']
+#             password = form.cleaned_data['password']
+
+#             user.set_password(password)
+#             user.save()
+
+
+#             user = authenticate(username=username, password=password)
+
+#             if user is not None:
+#                 if user.is_active:
+#                     login(request, user)
+#                     return redirect('greyscrumy:index')
+
+#         return render(request, self.template_name, {'form', form})
+
+
+
+            
+
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a

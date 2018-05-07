@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+myscrumy/__init__.py
+myscrumy/settings.py
+myscrumy/urls.py
+myscrumy/wsgi.py
+myscrumy.egg-info/PKG-INFO
+myscrumy.egg-info/SOURCES.txt
+myscrumy.egg-info/dependency_links.txt
+myscrumy.egg-info/not-zip-safe
+myscrumy.egg-info/requires.txt
+myscrumy.egg-info/top_level.txt

@@ -5,6 +5,7 @@
 {% endblock %}
 
 
+<<<<<<< HEAD
 {% block header %}
     <h1 class="text-center" style="font-size: 150%">REGISTERED USERS</h1>
 {% endblock %}
@@ -42,5 +43,39 @@
         </div>
     <!-- </div>
 </div> -->
+=======
+{% block body %}
+
+    {% block heade %}
+            <h1>REGISTER USERS</h1>
+    {% endblock %}
+
+
+    {% if goals %}
+        <ul>
+        {% for goal in goals %}
+            <!-- <li><a href="/greyscrumy/{{ goal.id }}">{{ goal.goal_description }}</a></li> -->
+            <li>{{ goal.fullname }}</li>
+        {% endfor %}
+        </ul>
+        <!-- <a href="{% url 'greyscrumy:Add_User' %}">Add New User</a> -->
+    {% else %}
+        <p>Nothing to display</p>
+    {% endif %}
+
+    <h1>ADD NEW USER</h1>
+
+    {% if success %}
+        {{ success }}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        
+        <button name="submit" type="submit">Add New User</button>
+    </form>
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
 
 {% endblock %}

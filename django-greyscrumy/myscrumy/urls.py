@@ -19,6 +19,9 @@ from django.urls import include, path
 urlpatterns = [
 
     path('greyscrumy/', include('greyscrumy.urls')),
+<<<<<<< HEAD
     path('greyscrumy/', include('django.contrib.auth.urls')),
+=======
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
     path('admin/', admin.site.urls),
 ]

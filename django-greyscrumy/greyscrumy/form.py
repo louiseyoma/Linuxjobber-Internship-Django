@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django import forms
+<<<<<<< HEAD
 from .models import ScrumyUser, ScrumyGoals
 
 class UserForm(forms.ModelForm):
@@ -31,3 +32,22 @@ class TaskForm(forms.ModelForm):
         fields = ('user_id', 'status_id','goal_type', 'goal_description', 'date_created', 'date_updated')
 
 
+=======
+from .models import ScrumyUser
+
+class UserForm(forms.ModelForm):
+   fullname  = forms.CharField(label='Enter User Name', max_length=100)
+   role  = forms.CharField(label='Enter User Role', max_length=100)
+
+   class Meta:
+       model = ScrumyUser
+
+       fields = ('fullname', 'role')
+
+class LoginForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a

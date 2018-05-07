@@ -12,9 +12,12 @@ class ScrumyUser(models.Model):
    fullname = models.CharField(max_length=100)
    role = models.CharField(max_length=1, choices=userRole)
 
+<<<<<<< HEAD
    def get_goals(self):
         return self.scrumygoals_set.filter(goal_type = 'WG')
 
+=======
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
 
 class GoalStatus(models.Model):
    goalStatus = (
@@ -35,8 +38,13 @@ class ScrumyGoals(models.Model):
    status_id = models.ForeignKey(GoalStatus, on_delete=models.CASCADE)
    goal_type = models.CharField(max_length=2, choices=goalType)
    goal_description = models.TextField()
+<<<<<<< HEAD
    date_created = models.DateField(null=True, blank = True)
    date_updated = models.DateField(null=True, blank = True)
+=======
+   date_created = models.DateTimeField('dateCreated')
+   date_updated = models.DateTimeField(null=True, blank=True)
+>>>>>>> e0bf16533a58cb488fe42653b263fa1dd71ad51a
 
 
 
