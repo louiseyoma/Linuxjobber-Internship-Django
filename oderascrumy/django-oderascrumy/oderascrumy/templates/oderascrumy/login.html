@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form action=''>
+	<form method = "POST">
+	{% csrf_token %}
+  user name:<br>
+  <input type="text"  name="enter username" value='{{ad_user}}'>
+  <br>
+  password:<br>
+  <input type="text"  value="enter your password">
+  <br><br>
+  <input type="submit" value="login">
+</form> 
+
+{% if form.errors %}
+    {% for users in ScrumyUser.objects.all %}
+        {% if value not in users %}
+            <div class="this user does, not exist">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endif %}
+     {% endfor %}
+
+{% endif %}
+    
+
+</body>
+</html>

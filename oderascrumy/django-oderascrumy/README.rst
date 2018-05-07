@@ -1,0 +1,21 @@
+
+Scrumy is a ridiculously simple and super intuitive project management tool designed for planning various tasks in a project. Essentially functioning as a virtual big board with sticky notes, Scrumy is great for one organizationally challenged student to plan their tasks on a project, for small groups which need to accomplish a number of tasks in a medium sized project, and even works wonderfully for a class sized project with multiple tasks and roles. A major strength of the program is that it is free and so simple that students barely need to be taught how to use it.
+
+
+1. Add "oderascrumy" to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = [
+        ...
+        'oderascrumy',
+    ]
+
+2. Include the polls URLconf in your project urls.py like this::
+
+    path('', include('oderascrumy.urls')),
+
+3. Run `python manage.py migrate` to create the oderascrumy models.
+
+4. Start the development server and visit http://127.0.0.1:8000/admin/
+   to create a poll (you'll need the Admin app enabled).
+
+5. Visit http://127.0.0.1:8000/ to participate in the poll.

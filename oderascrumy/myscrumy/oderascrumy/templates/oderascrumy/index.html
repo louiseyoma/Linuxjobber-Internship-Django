@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+
+	<link rel="stylesheet"  href="{% static 'css/oderascrumy.css' %}" >
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+</style>
+</head>
+<body>
+
+
+<table style="width:100%">
+	<caption>Table Data</caption>
+	<tr>
+		<th></th>
+		<th class='green'>user</th>
+		<th class='green'></th>
+		<th class='green'>Goals</th>
+		<th class='green'>Daily Goals</th>
+		<th class='green'>Verify</th>
+		<th class='green'>Done</th>
+	</tr>
+
+
+    <tr>
+        <td><a href='{% url 'oderascrumy:add_user' %}'>{{ad_user}}+</a></td>
+    	
+
+    	<td>{{user}}</td>
+		<td><a href='{% url 'oderascrumy:move_goals' 'pk' %}'>{{ad_task}}+</a>
+		</td>
+
+
+
+		<td>{%for goals in goals %}
+				{% for goals in goals.scrumygoals_set.all %}
+					{{goals}}
+				{% endfor %}
+			{% endfor %}
+		</td>
+
+
+		<td>
+		</td>
+		<td></td>
+	</tr>
+			
+	<tr>
+		<td><a href='{% url 'oderascrumy:add_user' %}'>{{ad_user}}+</a></td>
+		<td>{{user1}}</td>
+		<td><a href='{% url 'oderascrumy:move_goals' 'pk' %}'>{{ad_task}} + </a></td>
+		<td>
+			{%for goals in goals1 %}
+				{% for goals in goals.scrumygoals_set.all %}
+					{{goals}}
+				{% endfor %}
+			{% endfor %}
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><a href='{% url 'oderascrumy:add_user' %}'>{{ad_user}}+</a></td>
+		<td>{{user2}}</td>
+		<td><a href='{% url 'oderascrumy:move_goals' 'pk' %}'>{{ad_task}} + </a></td>
+		<td>
+			{%for goals in goals2 %}
+				{% for goals in goals.scrumygoals_set.all %}
+					{{goals}}
+				{% endfor %}
+			{% endfor %}
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><a href='{% url 'oderascrumy:add_user' %}'>{{ad_user}}+</a></td>
+		<td>{{user3}}</td>
+		<td><a href='{% url 'oderascrumy:move_goals' 'pk' %}'>{{ad_task}}+</a></td>
+		<td>
+			{%for goals in goals3 %}
+				{% for goals in goals.scrumygoals_set.all %}
+					{{goals}}
+				{% endfor %}
+			{% endfor %}
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><a href='{% url 'oderascrumy:add_user' %}'>{{ad_user}}+</a></td>
+		<td>{{user4}}</td>
+		<td><a href='{% url 'oderascrumy:move_goals' 'pk' %}'>{{ad_task}}+</a></td>
+		<td>
+			{%for goals in goals4 %}
+				{% for goals in goals.scrumygoals_set.all %}
+					{{goals}}
+				{% endfor %}
+			{% endfor %}
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
