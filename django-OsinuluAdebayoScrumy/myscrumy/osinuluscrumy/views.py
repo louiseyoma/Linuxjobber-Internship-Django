@@ -2,20 +2,27 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import AddUser, AddTask, ChangeGoalStatus
 from .models import ScrumyGoals, ScrumyUser, GoalStatus
+from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 
 def index(request):
 	new_user = ScrumyUser.objects.all()
-	user_details = ScrumyUser.objects.get(user_name='bilard')
-	userTarget = user_details.scrumygoals_set.all()
-	another_user_list = ScrumyUser.objects.count()
-	for w in range(1, another_user_list):
-		try:
-			ScrumyUser.objects.get(pk=w)
-		except ObjectDoesNotExist:
-			print("No user matches the id") 
+	
 
-	context = {'new_user': new_user, 'userTarget':userTarget}
+	#user_details = ScrumyUser.objects.get(user_name='bilard')
+	#userTarget = user_details.scrumygoals_set.all()
+	another_user_list = ScrumyUser.objects.count()
+	i = 1
+	userTarget = ScrumyGoals.objects.filter(user_id=i).filter(status_id__exact=1)
+	userTarget1 = ScrumyGoals.objects.filter(user_id=i+1).filter(status_id__exact=2)
+	userTarget2 = ScrumyGoals.objects.filter(user_id=3).filter(status_id__exact=1)
+	userTarget3 = ScrumyGoals.objects.filter(user_id=4).filter(status_id__exact=3)
+	userTarget4 = ScrumyGoals.objects.filter(user_id=5).filter(status_id__exact=4)
+
+
+	context = {'new_user': new_user, 'userTarget':userTarget, 'userTarget1':userTarget1, 'userTarget2':userTarget2, 'userTarget3':userTarget3,'userTarget4':userTarget4 }
+
+
 	return render(request, 'osinuluscrumy/index.html', context)
 
 def add_task(request):

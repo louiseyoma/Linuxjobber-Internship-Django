@@ -38,37 +38,104 @@
 				<a href="{% url 'add_task' %}">+</a>
 			</td>
 			<td>
-					{% for goals in userTarget %}
-						{% if goals.status_id.id is 1 and goals.user_id.id is 1 %}
-							{{goals}}
-						{% endif %}
-					{% endfor %}
-			</td>
-			<td>
 				{% for goals in userTarget %}
-						{% if goals.status_id.id is 2 and goals.user_id.id is 1 %}
-							{{goals}}
-						{% endif %}
-					{% endfor %}
+					{{goals.user_goals}}
+				{% endfor %}
+			</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="{% url 'add_user' %}">+</a>
 			</td>
 			<td>
-					{% for goals in userTarget %}
-						{% if goals.status_id.id is 3 and goals.user_id.id is 1 %}
-							{{goals}}
-						{% endif %}
-					{% endfor %}
+				{% for user in new_user %}
+					{% if user.id is 2 %}
+						{{user}}
+					{% endif %}
+				{% endfor %}
 			</td>
 			<td>
-				{% for goals in userTarget %}
-						{% if goals.status_id.id is 4 and goals.user_id.id is 1 %}
-							{{goals}}
-						{% endif %}
-					{% endfor %}
+				<a href="{% url 'add_task' %}">+</a>
+			</td>
+			<td></td>
+			<td>{% for goals in userTarget1 %}
+					{{goals.user_goals}}
+				{% endfor %}</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="{% url 'add_user' %}">+</a>
+			</td>
+			<td>
+				{% for user in new_user %}
+					{% if user.id is 3 %}
+						{{user}}
+					{% endif %}
+				{% endfor %}
+			</td>
+			<td>
+				<a href="{% url 'add_task' %}">+</a>
+			</td>
+			<td>
+				{% for goals in userTarget2 %}
+					{{goals.user_goals}}
+				{% endfor %}
+			</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="{% url 'add_user' %}">+</a>
+			</td>
+			<td>
+				{% for user in new_user %}
+					{% if user.id is 4 %}
+						{{user}}
+					{% endif %}
+				{% endfor %}
+			</td>
+			<td>
+				<a href="{% url 'add_task' %}">+</a>
+			</td>
+			<td></td>
+			<td></td>
+			<td>
+					{% for goals in userTarget3 %}
+					{{goals.user_goals}}
+				{% endfor %}
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="{% url 'add_user' %}">+</a>
+			</td>
+			<td>
+				{% for user in new_user %}
+					{% if user.id is 5 %}
+						{{user}}
+					{% endif %}
+				{% endfor %}
+			</td>
+			<td>
+				<a href="{% url 'add_task' %}">+</a>
+			</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>
+				{% for goals in userTarget4 %}
+					{{goals.user_goals}}
+				{% endfor %}
 			</td>
 		</tr>
 	</table>
-	
-	
-
 </body>
 </html>

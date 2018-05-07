@@ -2,11 +2,20 @@
 <html>
 <head>
 	<title>Registration Page</title>
+	<style>
+		table, th, td{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		td{
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 	<form action="{% url 'add_user' %}" method="POST">
 		{% csrf_token %}
-		<table border="1" width="20%">
+		<table width="30%">
 			{{form}}
 		</table>
 		<input type="submit" name="Register">
