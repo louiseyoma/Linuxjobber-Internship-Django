@@ -21,7 +21,6 @@ okoroscrumy/migrations/0001_initial.py
 okoroscrumy/migrations/0002_auto_20180428_0009.py
 okoroscrumy/migrations/__init__.py
 okoroscrumy/static/css/bootstrap.min.css
-okoroscrumy/templates/login/login.html
 okoroscrumy/templates/okoroscrumy/changestatus.html
 okoroscrumy/templates/okoroscrumy/dailytask.html
 okoroscrumy/templates/okoroscrumy/goals.html
@@ -29,3 +28,4 @@ okoroscrumy/templates/okoroscrumy/index.html
 okoroscrumy/templates/okoroscrumy/scrumygoals_form.html
 okoroscrumy/templates/okoroscrumy/scrumyuser_form.html
 okoroscrumy/templates/okoroscrumy/user.html
+okoroscrumy/templates/registration/login.html
