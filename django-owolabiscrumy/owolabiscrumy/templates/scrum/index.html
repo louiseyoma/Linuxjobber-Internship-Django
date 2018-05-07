@@ -1,0 +1,53 @@
+
+<head>
+  <style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    th, td {
+    padding: 15px;
+    }
+  </style>
+</head>
+
+
+<table style="width:100%", >
+  <tr>
+    <th></th>
+    <th></th>
+    <th>User</th>
+    <th></th>
+    <th>Weekly Goals</th>
+    <th>Daily Goals</th>
+    <th>Verified</th>
+    <th>Done</th>
+  </tr>
+  
+    {% for users in everyuser %}
+    <tr>
+        <td><a href="{% url 'owolabiscrumy:add_user' %}">+ </a></td>
+        <td>{{ users.id }}</td>
+        <td>{{users}}</td>
+        <td><a href="{% url 'owolabiscrumy:add_task' %}">+ </a></td>
+        <td>
+                       
+              {% for goal in goals %}
+              {% for goalz in goal.scrumygoals_set.all %}
+              {% if goalz.scrumyuser == users %}
+                    
+              <li>  {{goalz.goals}}</a></li>
+                    
+              {% endif %}
+              {% endfor %}
+              {% endfor %} 
+        </td>
+        <td></td>
+        <td></td>   
+        <td></td>
+    </tr>
+    {% endfor %}
+  
+</table>
+
+
