@@ -1,0 +1,28 @@
+<table style="border: 1px solid; border-spacing: 10px; width: 100%;">
+    <thead >
+        <td> </td>
+        <td> User </td>
+        <td> </td>
+        <td> Weekly Goals </td>
+        <td> Daily Goals </td>
+        <td> Verify </td>
+        <td> Done </td>
+    </thead>
+    <tbody>
+        {% for user in users %}
+
+        <tr>
+            <td><a href="{% url 'add_user' %}"> + </td>
+            <td> <a href='{{ user.id }}'>{{ user.Name }}</td>
+            <td><a href="{% url 'add_task' %}"> + </td>
+            <td> {% for goal in user.getscrunmywgoal %}
+                {{ goal.title}}
+                {% endfor %}
+            </td>
+            <td>  </td>
+            <td>  </td>
+            <td>  </td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table?

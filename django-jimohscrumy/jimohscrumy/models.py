@@ -19,8 +19,13 @@ class ScrumyUser(models.Model):
 	def __str__(self):
 		return self.Name
 
+	def getscrunmywgoal(self):
+		return self.scrumygoal_set.filter(Goal_type="W")
+
+
+
 class ScrumyGoal(models.Model):
-	user = models.ForeignKey("ScrumyUser", on_delete=models.CASCADE)
+	user = models.ForeignKey(ScrumyUser, on_delete=models.CASCADE)
 
 	GOAL_TYPE_C = (
 		("D", "Daily Goals"),
@@ -30,7 +35,7 @@ class ScrumyGoal(models.Model):
 	Goal_type = models.CharField(max_length=2, choices=GOAL_TYPE_C, default="D")
 	Desciption = models.CharField(max_length=250)
 	date_created = models.DateTimeField(auto_now=True)
-	status = models.ForeignKey("GoalStatus", on_delete=models.CASCADE, default="1")
+
 
 	def __str__(self):
 		return self.title
@@ -42,8 +47,8 @@ class GoalStatus(models.Model):
 		("I", "In-Progress"),
 		("D", "Done"),
 	)
-	user = models.ForeignKey("ScrumyUser", on_delete=models.CASCADE)
-	goal = models.OneToOneField("ScrumyGoal", on_delete=models.CASCADE)
+	user = models.ForeignKey(ScrumyUser, on_delete=models.CASCADE)
+	goal = models.OneToOneField(ScrumyGoal, on_delete=models.CASCADE)
 	Goal_status = models.CharField(max_length=2, choices=GOAL_STAT_C, default="I")
 
 	def __str__(self):
