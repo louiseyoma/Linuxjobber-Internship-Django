@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Move Task Status</title>
+</head>
+<body>
+
+	
+
+	<form action="" method="POST"> 
+		{% csrf_token %}
+		<label for="new_status">Task to move:</label> 
+		<select name="goal">
+			<option value="{{getTask.goals}}">{{getTask.goals}}</option>
+		</select>
+		<br/>
+		<br/>
+
+		{% if perms.fasugbaScrumy.anywhere_to_anywhere %}
+			<label for="new_status">Move status to:</label> 
+			<select name="new_status" id="id_new_status" required>
+				{% for each_status in all_status %}
+					<option value="{{each_status.name}}" selected="selected">{{each_status.name}}</option>
+				{% endfor %}
+			</select>
+
+		{% endif %}
+		
+		<br/>
+		<br/>
+        <button type="submit" name="login">Move Task</button>
+    </form>
+
+</body>
+</html>

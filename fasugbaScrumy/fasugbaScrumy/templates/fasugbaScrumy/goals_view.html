@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<link rel="stylesheet" href="{% static 'css/fasugbaScrumy.css' %}">
+</head>
+
+
+<body>
+	
+	<table width="100%">
+	  <tr>
+	    <th></th>
+	    <th>User</th>
+	    <th></th>
+	    <th>Weekly Goals</th>
+	    <th>Daily Goals</th>
+	    <th>Verify</th>
+	    <th>Done</th>
+	  </tr>
+
+
+
+	
+	  {% for goal in goals_object %}
+		  <tr>
+		  		
+		    		<td><a href="{% url 'add_user' %}" style="text-decoration: none;">+</a> </td>
+		    		<td style="text-align: left;">{{goal.id}}&nbsp {{goal.scrumy_user.first_name}},&nbsp{{goal.scrumy_user.last_name}}</td>
+		    		<td><a href="{% url 'add_task' %}" style="text-decoration: none;">+</a> </td>
+				    
+				    <td>{% if goal.scrumy_status.name == 'weekly target' %} {{goal.goals}} {%endif%}</td>
+				    <td>{% if goal.scrumy_status.name == 'daily target' %} {{goal.goals}} {%endif%}</td>
+				    <td>{% if goal.scrumy_status.name == 'verify' %} {{goal.goals}} {%endif%}</td>
+				    <td>{% if goal.scrumy_status.name == 'done' %} {{goal.goals}} {%endif%}</td>
+				
+		  </tr>
+	  {% endfor %}
+
+	  
+	</table> 
+</body>
+</html>
