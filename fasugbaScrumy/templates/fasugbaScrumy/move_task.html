@@ -1,23 +1,88 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Move Task Status</title>
-</head>
-<body>
 
+{% extends 'fasugbaScrumy/layout.html' %}
+
+{% block content %}
 	
 
 	<form action="" method="POST"> 
 		{% csrf_token %}
-		<label for="new_status">Task to move:</label> 
-		<select name="goal">
-			<option value="{{getTask.goals}}">{{getTask.goals}}</option>
-		</select>
+		
+
+
+		{% if perms.fasugbaScrumy.WG_to_DT %}
+			<label for="goal">Select Task:</label> 
+			<select name="goal" id="id_goal" required>
+				{% for each_goal in weekly_goals %}
+					<option value="{{each_goal.goals}}" selected="selected">{{each_goal.goals}}</option>
+				{% endfor %}
+			</select>
+			<br/>
+			<br/>
+
+			<label>Move goal status to:</label>
+			<select>
+				<option>Daily Task</option>
+			</select>
+		{% endif %}
+
+
+
+
+		{% if perms.fasugbaScrumy.DT_to_verify %}
+			<label for="goal">Select Task:</label> 
+			<select name="goal" id="id_goal" required>
+				{% for each_goal in daily_goals %}
+					<option value="{{each_goal.goals}}" selected="selected">{{each_goal.goals}}</option>
+				{% endfor %}
+			</select>
+			<br/>
+			<br/>
+
+			<label>Move goal status to:</label>
+			<select>
+				<option>Verified</option>
+			</select>
+		{% endif %}
+
+
+
+
+		{% if perms.fasugbaScrumy.verify_t0_done %}
+			<label for="goal">Select Task:</label> 
+			<select name="goal" id="id_goal" required>
+				{% for each_goal in verify %}
+					<option value="{{each_goal.goals}}" selected="selected">{{each_goal.goals}}</option>
+				{% endfor %}
+			</select>
+			<br/>
+			<br/>
+
+			<label>Move goal status to:</label>
+			<select>
+				<option>Done</option>
+			</select>
+		{% endif %}
+
+
+
+
+
 		<br/>
 		<br/>
 
 		{% if perms.fasugbaScrumy.anywhere_to_anywhere %}
-			<label for="new_status">Move status to:</label> 
+			<label for="goal">Select Task:</label> 
+			<select name="goal" id="id_goal" required>
+				{% for each_goal in all_goals %}
+					<option value="{{each_goal.goals}}" selected="selected">{{each_goal.goals}}</option>
+				{% endfor %}
+			</select>
+
+
+			<br/>
+			<br/>
+
+			<label for="new_status">Move goal status to:</label> 
 			<select name="new_status" id="id_new_status" required>
 				{% for each_status in all_status %}
 					<option value="{{each_status.name}}" selected="selected">{{each_status.name}}</option>
@@ -31,5 +96,5 @@
         <button type="submit" name="login">Move Task</button>
     </form>
 
-</body>
-</html>
+
+{% endblock %}

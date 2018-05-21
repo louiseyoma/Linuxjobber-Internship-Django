@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Home Page</title>
-</head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 5px;
-    text-align: center;
-}
+{% extends 'fasugbaScrumy/layout.html' %}
 
-li{
-	text-align: left;
-	 padding: 5px;
-}
-</style>
+{% block content %}
 
-<body>
 	
 	<table width="100%">
 		 <tr>
@@ -58,5 +40,6 @@ li{
 
 	  
 	</table> 
-</body>
-</html>
+
+
+{% endblock %}
