@@ -1,0 +1,187 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+       <link rel="stylesheet" href="{% static 'CSS/oshodiscrumy.css' %}">
+    </head>
+    <body>
+
+
+<h2>Move Tasks</h2>
+
+
+<form method="POST" > 
+    {% csrf_token %}
+    
+    {% if perms.oshodiscrumy.move_from_DT_to_verify %}
+    <div class="form-group col-md-6" style="margin-left: 10em">
+        <label for="goal">Select Task:</label> 
+        <select name="goal" id="id_goal" class="form-control" required>
+            {% for each_goal in daily_goals %}
+                <option value="{{each_goal.goals}}" selected="selected">{{each_goal.goals}}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <br/>
+        <div class="form-group col-md-6" style="margin-left: 10em">
+        <label>Move goal status to:</label>
+        <select class="form-control" required>
+            <option>Verify</option>
+        </select>
+    </div>
+    {% endif %}
+    <br/>
+    <br/>
+
+
+    {% if perms.oshodiscrumy.move_from_WG_to_DT %}
+    <div class="form-group col-md-6" style="margin-left: 10em">
+        <label for="goal">Select Task:</label> 
+        <select name="goal" id="id_goal" class="form-control" required>
+            {% for each_goal in weekly_goals %}
+                <option value="{{each_goal.goals}}" selected="selected">{{each_goal.goals}}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <br/>
+        <div class="form-group col-md-6" style="margin-left: 10em">
+        <label>Move goal status to:</label>
+        <select class="form-control" required>
+            <option>Daily Task</option>
+        </select>
+        </div>
+    {% endif %}
+    <br/>
+
+
+    {% if perms.oshodiscrumy.move_from_verify_to_done %}
+    <div class="form-group col-md-6" style="margin-left: 10em">
+        <label for="goal">Select Task:</label> 
+        <select name="goal" id="id_goal" class="form-control" required>
+            {% for each_goal in verify %}
+                <option value="{{each_goal.goals}}" selected="selected">{{each_goal.goals}}</option>
+            {% endfor %}
+        </select>
+    </div>
+        <br/>
+        <br/>
+        <div class="form-group col-md-6" style="margin-left: 10em">
+        <label>Move goal status to:</label>
+        <select class="form-control" required>
+            <option>Done</option>
+        </select>
+        </div>
+    {% endif %}
+    <br/>
+    <br/>
+
+    {% if perms.oshodiscrumy.can_move_anywhere %}
+    <div class="form-group col-md-6" style="margin-left: 10em">
+        <label for="goal">Select Task:</label> 
+        <select name="goal" id="id_goal" class="form-control" required>
+            {% for each_goal in all_goals %}
+                <option value="{{each_goal.goals}}" selected="selected">{{each_goal.goals}}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <br/>
+        <div class="form-group col-md-6" style="margin-left: 10em">
+        <label for="new_status">Move goal status to:</label> 
+        <select name="new_status" id="id_new_status" class="form-control" required>
+            {% for each_status in all_status %}
+                <option value="{{each_status.name}}" selected="selected">{{each_status.name}}</option>
+            {% endfor %}
+        </select>
+        </div>
+
+    {% endif %}
+    
+    <br/>
+    <div class="form-group col-md-6" style="margin-left: 10em">
+   <button class="btn btn-primary" type="submit" name="login">Move Task</button>
+   </div>
+</form>
+
+    </body>
+    </html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Task</title>
+</head>
+<body>
+    
+        <h1> EDIT TASKS </h1>
+        <form method="post">
+            {% csrf_token %}
+            {% if forms.errors %}
+            {% for error in field.errors %}
+                <div class="invalid-feedback">
+                    {{error}}
+                </div>
+                {% endfor %}
+            {% endif %}
+            <div>
+            {{forms.user_id.label_tag}}
+            {{ forms.user_id }}
+            </div><br>
+            <div>
+            {{forms.title.label_tag}}
+            {{ forms.title }}
+            </div><br>
+            <div>
+            {{forms.task.label_tag}}
+            {{ forms.task }}
+            </div><br>
+            <div>
+            {{forms.status_id.label_tag}}
+            {{ forms.status_id }}
+            </div><br>
+                <button type="submit" class="btn btn-success">Update</button><spa> {% if st %}
+                        <p style="color:red;">{{st}}</p>
+                        {% endif %}</spa>
+            </form>
+    
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>MOVE TASK STATUS</title>
+</head>
+<body>
+
+	
+
+	<form action="" method="POST"> 
+		{% csrf_token %}
+		<label for="new_status">Task to move:</label> 
+		<select name="goal">
+			<option value="{{task.goals}}">{{task.goals}}</option>
+		</select>
+		<br/>
+		<br/>
+
+		{% if perms.oshodiscrumy.anywhere_to_anywhere %}
+			<label for="new_status">Move status to:</label> 
+			<select name="new_status" id="id_new_status" required>
+				{% for each_status in status_object %}
+					<option value="{{each_status.name}}" selected="selected">{{each_status.name}}</option>
+				{% endfor %}
+			</select>
+
+		{% endif %}
+		
+		<br/>
+		<br/>
+        <button type="submit" name="login">Move Task</button>
+    </form>
+
+</body>
+</html> -->

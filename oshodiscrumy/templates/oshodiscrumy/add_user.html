@@ -1,0 +1,35 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/oshodiscrumy.css' %}">
+    </head>
+    <body>
+        <h2>Add New User</h2>
+            <form method="POST">
+                    <div class="form-group col-md-6" style="margin-left: 10em">
+                    {% csrf_token %}   <!-- this line helps to make your form secure --> 
+                    {{ form.as_p }}
+                    
+                    <button class="btn btn-primary" type="submit" >Add User</button>
+                    </div>
+                </form>
+    </body>
+    </html>
+
+
+
+<!-- <title> REGISTRATION PAGE </title>
+<h2> HELLO, USER ADDED </h2>
+<form action="" method="post">
+    {% csrf_token %} {% for field in form %}
+    <p> {{field.errors}} </p>
+    <label for=""> {{ field.label_tag }} </label>
+    <div>{{ field }}</div>
+
+    {% endfor %}
+
+    <button type="submit">Add User</button>
+</form> -->

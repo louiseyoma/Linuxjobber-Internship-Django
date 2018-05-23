@@ -1,0 +1,94 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'CSS/oshodiscrumy.css' %}">
+    </head>
+    <body>
+    
+    <h2>SCRUMY DASHBOARD</h2>
+    
+        {% block content %}
+
+        <div style="float: right; margin-right: 3em; margin-bottom: 3em">
+        
+        {% if request.user.is_authenticated %}
+           <h4><strong>Welcome {{user}} </strong> </h4>
+        {% else %}
+            You are not logged in
+    {% endif %}
+    
+    </div>
+
+    <table class="table">
+        <tr>
+        <th></th>
+        <th>User</th>
+        <th></th>
+        <th>Weekly Goals</th>
+        <th>Daily Goals</th>
+        <th>Verify</th>
+        <th>Done</th>
+        </tr>
+        {% for user in goals_object %}
+            <tr>
+                <td><a href="{% url 'oshodiscrumy:add_user' %}">+</a></td>
+                <td>{{user.username}}</td>
+                <td><a href="{% url 'oshodiscrumy:add_task' %}">+</a></td>
+                
+                <td>{% for goal in user.scrumygoals_set.all %}
+                        <li>{{goal.goals}}</li> {% endfor %}</td>
+                <td> {% for goal in user.scrumygoals_set.all %}
+                        <li>{{goal.goals}}</li> {% endfor %}</td>
+                <td> {% for goal in user.scrumygoals_set.all %}
+                        <li>{{goal.goals}}</li> {% endfor %}</td>
+                <td> {% for goal in user.scrumygoals_set.all %}{% if goal.goal_status.name == "Done" %}
+                        <li>{{goal.goals}}  </li>{% endif %}{% endfor %}</td>
+                        
+                
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% endblock %}
+    </body>
+    </html>
+
+
+
+<!-- {% load staticfiles %}
+
+<link rel="stylesheet" href="{% static 'css/oshodiscrumy.css' %}"/>
+<title> HOMEPAGE </title>
+<table border="2">
+    <caption>TABLE DATA</caption>
+    <tr>
+        <th>Add User</th>
+        <th>User</th>
+        <th></th>
+        <th>Weekly Goals</th>
+        <th>Daily Goals</th>
+        <th>Verify</th>
+        <th>Done</th>
+    </tr>
+    {% if user %}
+    {% for user in users %}
+    <tr>
+        <td><a href="{% url 'add_user' %} "> + </a> </td>
+        <td>{{ user.username}}</td>
+    <td> <a href="{% url 'add_task' %} "> + </a> </td>
+    <td> 
+        {% for goal in user.getweeklygoals %} {{ goal.title }} <br>
+        {% endfor %}
+    </td>
+    <td><br></td>
+    <td><br></td>
+    <td><br></td>
+</tr>
+{% endfor %}
+{% else %}
+    <p>Username not available</p>
+{% endif %}
+</table> -->

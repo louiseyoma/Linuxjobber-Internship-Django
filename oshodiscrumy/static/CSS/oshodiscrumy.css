@@ -1,0 +1,51 @@
+table {
+    font-family: arial, sans-serif;
+    margin-top: 3em;
+    padding: 15px;
+    background-color: black;
+}
+
+td, th {
+    border: 2px solid #dddddd;
+    text-align: left;
+    padding: 5px;
+    font-size: 17px; color: green;
+}
+
+h2 {
+    color: green;
+    margin-left: 10em;
+}
+
+table tr td li {
+    list-style-type: none;
+}
+
+
+
+
+/* table { 
+    border-collapse: collapse;
+
+    border-spacing: 10px;
+
+    width: 100%; 
+}
+
+table, th, td {
+    border: 2px solid red;
+
+    font-size: 17px;
+    
+    color: green;
+
+    text-align: center;
+
+    padding: 15px;
+
+    background-color:black;
+}
+
+caption { color: blue;
+    font-size: 28px;
+} */
